@@ -14,12 +14,16 @@
             <th>Nome</th>
             <th>Email</th>
             <th>telefone</th>
+            <th>Alterar</th>
+            <th>Remover</th>
         </tr>
         </thead>
         <tr th:each="convidado : ${convidados}">
             <td> <span th:text="${convidado.nome}"></span> </td>
             <td> <span th:text="${convidado.email}"></span> </td>
             <td> <span th:text="${convidado.telefone}"></span> </td>
+            <td><a th:href="@{'alterar/'} + ${convidado.id}">Alterar</a></td>
+            <td><a th:href="@{'remover/'} + ${convidado.id}">Remover</a></td>
         </tr>
     </table>
 </div>

@@ -33,4 +33,47 @@ public class ConvidadoService {
     public void salvar(Convidado convidado){
         repository.save(convidado);
     }
+
+    /**
+     * Busca um convidado por Id
+     * @param id do convidado
+     * @return convidado encontrado
+     */
+	public Convidado buscarClientePorId(Long id) {
+		Convidado resultado = repository.findById(id).get(); 
+		
+		return resultado;
+	}
+	
+	/**
+	 * Deleta um convidado do repositório
+	 * @param convidado selecionado
+	 */
+	public void remover(Convidado convidado){
+		repository.delete(convidado);
+	}
+	
+	/**
+	 * Deleta um convidado do repositório
+	 * @param id do convidado selecionado
+	 */
+	public void remover(Long id){
+		repository.delete(this.buscarClientePorId(id));
+	}
+
+	/**
+	 * Altera um convidado existente
+	 * @param id do convidado existente selecionado
+	 * @param nome novo nome do convidado
+	 * @param email novo e-mail do convidado
+	 * @param telefone novo telefone convidado
+	 */
+	public void alterar(Long id, String nome, String email, String telefone) {
+		Convidado convidado = this.buscarClientePorId(id); 
+		convidado.setEmail(email);
+		convidado.setNome(nome);
+		convidado.setTelefone(telefone);
+	    repository.save(convidado);
+	}
+	
 }
