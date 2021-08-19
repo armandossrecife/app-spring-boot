@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import br.ufpi.listavip.model.Convidado;
 import br.ufpi.listavip.repository.ConvidadoRepository;
 
+
+
 /**
  * Classe de serviço que acessa o repositório de Convidados
  * @author armandosoaressousa
@@ -40,9 +42,8 @@ public class ConvidadoService {
      * @return convidado encontrado
      */
 	public Convidado buscarClientePorId(Long id) {
-		Convidado resultado = repository.findById(id).get(); 
-		
-		return resultado;
+		//Convidado resultado = repository.findById(id).get();
+		return repository.findOne(id);
 	}
 	
 	/**
